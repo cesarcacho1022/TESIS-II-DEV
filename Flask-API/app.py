@@ -19,7 +19,7 @@ def getResult():
     # prediction
     result = model.predict(input)
 
-    result = 'placed' if result[0] == 1 else 'not placed'
+    result = 'Yes' if result[0] == 1 else 'No'
 
     return render_template('index.html', result=result)
 
@@ -34,7 +34,7 @@ def predict_placement():
     result = model.predict(
         np.array([AMT_INCOME_TOTAL, AMT_CREDT, NAME_INCOME]).reshape(1, 3))
 
-    result = 'placed' if result[0] == 1 else 'not placed'
+    result = 'Yes' if result[0] == 1 else 'No'
 
     return render_template('index.html', result=result)
 
