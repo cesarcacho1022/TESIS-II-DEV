@@ -34,37 +34,53 @@
         </div>
     </section>
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="project">
         <h2>Tesis II</h2>
 
-            <form method="post" action="/predict" class="contact__form grid">
-                <label>AMT_INCOME_TOTAL</label><br />
-                <input type="text" name="AMT_INCOME_TOTAL" required="required" /><br /><br />
+        <form method="post" action="/" class="contact__form grid">
+            <label>AMT_INCOME_TOTAL</label><br />
+            <input type="text" name="AMT_INCOME_TOTAL" required="required" /><br /><br />
 
-                <label>AMT_CREDT</label><br />
-                <input type="text" name="AMT_CREDT" required="required" /><br /><br />
+            <label>AMT_CREDT</label><br />
+            <input type="text" name="AMT_CREDT" required="required" /><br /><br />
 
-                <label>NAME_INCOME</label><br />
-                <input type="text" name="NAME_INCOME" required="required" /><br /><br />
+            <label>NAME_INCOME</label><br />
+            <select name="NAME_INCOME" id="NAME_INCOME" required="required">
+                <option value=1>Businessman</option>
+                <option value=2>Commercial associate</option>
+                <option value=3>Maternity leave</option>
+                <option value=4>Pensioner</option>
+                <option value=5>State servant</option>
+                <option value=6>Student</option>
+                <option value=7>Unemployed</option>
+                <option value=8>Working</option>
+            </select><br /><br />
 
-                <label>NAME_EDUCATION</label><br />
-                <input type="text" name="NAME_EDUCATION" required="required" /><br /><br />
+            <label>NAME_EDUCATION</label><br />
+            <select name="NAME_EDUCATION" id="NAME_EDUCATION" required="required">
+                <option value=1>Academic degree</option>
+                <option value=2>Higher education</option>
+                <option value=3>Incomplete higher</option>
+                <option value=4>Lower secondary</option>
+                <option value=5>Secondary / secondary special</option>
+            </select><br /><br />
 
-                <label>TERM_MONTH</label><br />
-                <input type="text" name="TERM_MONTH" required="required" /><br /><br />
 
-                <label>CNT_CHILDRE</label><br />
-                <input type="text" name="CNT_CHILDRE" required="required" /><br /><br />
+            <label>TERM_MONTH</label><br />
+            <input type="text" name="TERM_MONTH" required="required" /><br /><br />
 
-                <label>AGE</label><br />
-                <input type="text" name="AGE" required="required" /><br /><br />
+            <label>CNT_CHILDRE</label><br />
+            <input type="text" name="CNT_CHILDRE" required="required" /><br /><br />
 
-                <input type="submit" class="buttons" value="Predict" /><br /><br />
-            </form>
+            <label>AGE</label><br />
+            <input type="text" name="AGE" required="required" /><br /><br />
 
-            {% if result %}
-            <p>{{ result }}</p>
-            {% endif %}
+            <input type="submit" class="buttons" value="Predict" /><br /><br />
+        </form>
+
+        {% if result %}
+        <p>{{ result }}</p>
+        {% endif %}
     </section>
     <!-- Script -->
     <script src="{{ url_for('static',filename='scripts.js') }}"></script>
