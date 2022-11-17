@@ -4,6 +4,8 @@ Requirements:
 
 - Python 3.7
 
+[Read the complete guide](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install-linux.html)
+
 Clone this repository:
 
 ```bash
@@ -14,6 +16,7 @@ Install libraries:
 
 ```bash
 pip install -r requirements.txt
+cd folder
 ```
 
 ## Start local server
