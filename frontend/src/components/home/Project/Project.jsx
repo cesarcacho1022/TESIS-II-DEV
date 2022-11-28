@@ -40,21 +40,21 @@ const Project = () => {
             mode: 'no-cors',
             method: "POST",
             body: data
-        }).then((res) => {
-            setIsPredict(true);
-            if (res.ok) {
-                setPredictData("Perfect! ");
+        }).then((response) => response.json())
+            .then((res) => {
+                setIsPredict(true);
+                if (res.ok) {
+                    setPredictData("Perfect! ");
 
-            } else if (res.status == 500) {
-                setPredictData("Oops! ");
-            }
-        }, function (e) {
-            console.log("hola")
-            setIsPredict(true);
-            setPredictData("Error submitting form!");
-        });
-
-
+                } else if (res.status == 500) {
+                    setPredictData("Oops! ");
+                }
+            })
+            .catch ((e) => {
+                console.log(e)
+                setIsPredict(true);
+                setPredictData("Error submitting form!");
+            });
     };
 
     useEffect(() => {
