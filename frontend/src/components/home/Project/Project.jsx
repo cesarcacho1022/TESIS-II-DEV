@@ -26,24 +26,39 @@ const Project = () => {
     const handleSubmit = e => {
         e.preventDefault();
 
-        const data = {AMT_INCOME_TOTAL, AMT_CREDT, NAME_INCOME, NAME_EDUCATION, TERM_MONTH, CNT_CHILDRE, AGE};
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "POST"
-            },
-            body: JSON.stringify(data)
-        };
-        fetch('http://localhost:8080/predict', {method: "POST", body: JSON.stringify(data)})
-            .then(response => response.json())
-            .then(res => setPredictData(res));
+        const data = new FormData();
+
+        data.append("AMT_INCOME_TOTAL", AMT_INCOME_TOTAL)
+        data.append("AMT_CREDT", AMT_CREDT)
+        data.append("NAME_INCOME", NAME_INCOME)
+        data.append("NAME_EDUCATION", NAME_EDUCATION)
+        data.append("TERM_MONTH", TERM_MONTH)
+        data.append("CNT_CHILDRE", CNT_CHILDRE)
+        data.append("AGE", AGE)
 
         console.log(data)
 
-        setIsPredicct(true);
+        const requestOptions = {
+            method: "POST",
+            mode: "no-cors",
+            body: data
+        };
+        fetch("http://localhost:8080/predict", {
+            mode: 'no-cors',
+            method: "POST",
+            body: data
+        }).then(function (res) {
+            if (res.ok) {
+                alert("Perfect! ");
+                setIsPredicct(true);
+            } else if (res.status == 401) {
+                alert("Oops! ");
+            }
+        }, function (e) {
+            alert("Error submitting form!");
+        });
+
+
     };
 
     useEffect(() => {
@@ -70,7 +85,7 @@ const Project = () => {
 
                     <h3 className="text-slate-700 dark:text-white mt-2">NAME_INCOME</h3>
                     <select required className="rounded outline-none text-gray-900 px-5  py-4 my-4"
-                            name="NAME_EDUCATION" id="NAME_INCOME" onChange={onNAME_INCOME}>
+                            name="NAME_INCOME" id="NAME_INCOME" value={NAME_INCOME} onChange={onNAME_INCOME}>
                         <option value="1">Businessman</option>
                         <option value="2">Commercial associate</option>
                         <option value="3">Maternity leave</option>
@@ -83,7 +98,7 @@ const Project = () => {
 
                     <h3 className="text-slate-700 dark:text-white mt-2">NAME_EDUCATION</h3>
                     <select required className="rounded outline-none text-gray-900 px-5  py-4 my-4"
-                            name="NAME_EDUCATION" id="NAME_EDUCATION" onChange={onNAME_EDUCATION}>
+                            name="NAME_EDUCATION" id="NAME_EDUCATION" value={NAME_EDUCATION} onChange={onNAME_EDUCATION}>
                         <option value="1">Academic degree</option>
                         <option value="2">Higher education</option>
                         <option value="3">Incomplete higher</option>

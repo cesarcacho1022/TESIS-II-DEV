@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response, jsonify
+from flask import Flask, request, make_response, jsonify
 from waitress import serve
 import pickle
 import numpy as np
@@ -29,16 +29,15 @@ def getResult():
 def predict_placement():
     if request.method == "POST":
         try:
-            print("JSON : " + request.json)
-            AMT_INCOME_TOTAL = float(request.json['AMT_INCOME_TOTAL'])
-            AMT_CREDT = float(request.json['AMT_CREDT'])
-            NAME_INCOME = int(request.json['NAME_INCOME'])
-            NAME_EDUCATION = int(request.json['NAME_EDUCATION'])
-            TERM_MONTH = int(request.json['TERM_MONTH'])
-            CNT_CHILDRE = int(request.json['CNT_CHILDRE'])
-            AGE = int(request.json['AGE'])
-
-            print("AGE : " + str(AGE))
+            print(request.form)
+            
+            AMT_INCOME_TOTAL = float(request.form.get('AMT_INCOME_TOTAL'))
+            AMT_CREDT = float(request.form.get('AMT_CREDT'))
+            NAME_INCOME = int(request.form.get('NAME_INCOME'))
+            NAME_EDUCATION = int(request.form.get('NAME_EDUCATION'))
+            TERM_MONTH = int(request.form.get('TERM_MONTH'))
+            CNT_CHILDRE = int(request.form.get('CNT_CHILDRE'))
+            AGE = int(request.form.get('AGE'))
 
             # prediction
             result = model.predict(np.array([AMT_INCOME_TOTAL, AMT_CREDT, NAME_INCOME, NAME_EDUCATION, TERM_MONTH, CNT_CHILDRE, AGE]).reshape(1, 7))
