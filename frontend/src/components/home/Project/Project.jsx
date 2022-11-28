@@ -41,18 +41,18 @@ const Project = () => {
             body: data
         }).then((res) => {
             setIsPredict(true);
-            console.log(res.result)
-            setPredictData(res.result);
-            if (res.ok) {
-                setPredictData(res.result);
-
-            } else if (res.status == 500) {
-                setPredictData("Oops! ");
-            }
+            setPredictData(toString(res.get));
+            console.log(res.text())
+            
+            if (!res.ok) {
+                setPredictData("Error2");
+                throw new Error(res.error);
+            } 
+            
         }).catch ((e) => {
             console.log(e)
             setIsPredict(true);
-            setPredictData("Error submitting form!");
+            setPredictData("Error al obtener predicción");
         });
     };
 
@@ -119,7 +119,7 @@ const Project = () => {
                 </form>
 
                 {
-                    isPredict ? isPredict ?
+                    1 ? 1 ?
                             <h1 className=" pt-10 pb-5 text-4xl font-bold text-slate-700 dark:text-white">{predictData}</h1> :
                             <h1 className=" pt-10 pb-5 text-4xl font-bold text-red-500 dark:text-red-400">{predictData}</h1> :
                         <h1></h1>
