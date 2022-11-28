@@ -10,11 +10,47 @@
     },
     {
         "projectId": "2",
-        "projectName": "Copa America",
-        "projectType": "Football Tournament",
+        "projectName": "Test 2",
+        "projectType": "Exploración de datos",
         "projectCategory": "Exploración",
-        "projectDescription": "This is a football tournament related website which is created with html & vanilla css only. This site is also mobile responsive.",
-        "projectDetails": "This is a football tournament related website which is created with html & vanilla css only. This site is also mobile responsive.",
-        "projectIMG": "https://i.ibb.co/wLkF33c/copa-america.png"
+        "projectDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+        "projectDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "projectIMG": "https://github.com/cesarcacho1022/TESIS-II-DEV/raw/main/frontend/src/assets/images/projectImages/2.png"
+    },
+    {
+        "projectId": "3",
+        "projectName": "Test 3",
+        "projectType": "Preparación de datos",
+        "projectCategory": "Preparación",
+        "projectDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+        "projectDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "projectIMG": "https://github.com/cesarcacho1022/TESIS-II-DEV/raw/main/frontend/src/assets/images/projectImages/3.png"
+    },
+    {
+        "projectId": "4",
+        "projectName": "Test 4",
+        "projectType": "Análisis exploratorio",
+        "projectCategory": "Análisis",
+        "projectDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+        "projectDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "projectIMG": "https://github.com/cesarcacho1022/TESIS-II-DEV/raw/main/frontend/src/assets/images/projectImages/4.png"
+    },
+    {
+        "projectId": "5",
+        "projectName": "Test 5",
+        "projectType": "Análisis exploratorio",
+        "projectCategory": "Análisis",
+        "projectDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+        "projectDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "projectIMG": "https://github.com/cesarcacho1022/TESIS-II-DEV/raw/main/frontend/src/assets/images/projectImages/5.png"
+    },
+    {
+        "projectId": "6",
+        "projectName": "Test 6",
+        "projectType": "Modelado de datos",
+        "projectCategory": "Modelado",
+        "projectDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+        "projectDetails": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "projectIMG": "https://github.com/cesarcacho1022/TESIS-II-DEV/raw/main/frontend/src/assets/images/projectImages/6.png"
     }
 ]
