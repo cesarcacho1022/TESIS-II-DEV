@@ -12,8 +12,8 @@ const Project = () => {
     const [CNT_CHILDRE, setCNT_CHILDRE] = useState('');
     const [AGE, setAGE] = useState('');
 
-    const [predictData, setPredictData] = useState([]);
-    const [isPredict, setIsPredicct] = useState(false);
+    const [predictData, setPredictData] = useState('');
+    const [isPredict, setIsPredict] = useState(false);
 
     const onAMT_INCOME_TOTAL = e => setAMT_INCOME_TOTAL(e.target.value);
     const onAMT_CREDT = e => setAMT_CREDT(e.target.value);
@@ -36,26 +36,22 @@ const Project = () => {
         data.append("CNT_CHILDRE", CNT_CHILDRE)
         data.append("AGE", AGE)
 
-        console.log(data)
-
-        const requestOptions = {
-            method: "POST",
-            mode: "no-cors",
-            body: data
-        };
         fetch("http://localhost:8080/predict", {
             mode: 'no-cors',
             method: "POST",
             body: data
-        }).then(function (res) {
+        }).then((res) => {
+            setIsPredict(true);
             if (res.ok) {
-                alert("Perfect! ");
-                setIsPredicct(true);
-            } else if (res.status == 401) {
-                alert("Oops! ");
+                setPredictData("Perfect! ");
+
+            } else if (res.status == 500) {
+                setPredictData("Oops! ");
             }
         }, function (e) {
-            alert("Error submitting form!");
+            console.log("hola")
+            setIsPredict(true);
+            setPredictData("Error submitting form!");
         });
 
 
@@ -125,8 +121,8 @@ const Project = () => {
 
                 {
                     isPredict ? isPredict ?
-                            <h1 className=" pt-10 pb-5 text-4xl font-bold text-slate-700 dark:text-white">predictData</h1> :
-                            <h1 className=" pt-10 pb-5 text-4xl font-bold text-red-500 dark:text-red-400">predictData</h1> :
+                            <h1 className=" pt-10 pb-5 text-4xl font-bold text-slate-700 dark:text-white">{predictData}</h1> :
+                            <h1 className=" pt-10 pb-5 text-4xl font-bold text-red-500 dark:text-red-400">{predictData}</h1> :
                         <h1></h1>
                 }
 

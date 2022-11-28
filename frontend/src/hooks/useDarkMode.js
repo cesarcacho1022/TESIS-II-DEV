@@ -22,7 +22,5 @@ export const useDarkMode = () => {
 
     }, [isDarkMode]);
 
-    console.log(localStorage.theme);
-
     return [isDarkMode, toggleDarkMode]
 };
