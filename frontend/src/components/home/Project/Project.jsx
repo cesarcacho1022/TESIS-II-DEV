@@ -39,21 +39,23 @@ const Project = () => {
         fetch("http://localhost:8080/predict", {
             method: "POST",
             body: data
-        }).then((res) => {
-            setIsPredict(true);
-            setPredictData(toString(res.get));
-            console.log(res.text())
-            
-            if (!res.ok) {
-                setPredictData("Error2");
-                throw new Error(res.error);
-            } 
-            
-        }).catch ((e) => {
-            console.log(e)
-            setIsPredict(true);
-            setPredictData("Error al obtener predicción");
-        });
+        }).then((response) => response.json())
+            .then((res) => {
+                console.log(res.ok)
+                
+                if (!res.ok) {
+                    setPredictData("Error2");
+                    throw new Error(res.error);
+                } 
+                
+                setIsPredict(true);
+                setPredictData(res.result);
+
+            }).catch ((e) => {
+                console.log(e)
+                setIsPredict(true);
+                setPredictData("Error al obtener predicción");
+            });
     };
 
     useEffect(() => {
@@ -81,6 +83,7 @@ const Project = () => {
                     <h3 className="text-slate-700 dark:text-white mt-2">NAME_INCOME</h3>
                     <select required className="rounded outline-none text-gray-900 px-5  py-4 my-4"
                             name="NAME_INCOME" id="NAME_INCOME" value={NAME_INCOME} onChange={onNAME_INCOME}>
+                        <option value="">Select option</option>
                         <option value="1">Businessman</option>
                         <option value="2">Commercial associate</option>
                         <option value="3">Maternity leave</option>
@@ -94,6 +97,7 @@ const Project = () => {
                     <h3 className="text-slate-700 dark:text-white mt-2">NAME_EDUCATION</h3>
                     <select required className="rounded outline-none text-gray-900 px-5  py-4 my-4"
                             name="NAME_EDUCATION" id="NAME_EDUCATION" value={NAME_EDUCATION} onChange={onNAME_EDUCATION}>
+                        <option value="">Select option</option>
                         <option value="1">Academic degree</option>
                         <option value="2">Higher education</option>
                         <option value="3">Incomplete higher</option>
@@ -119,7 +123,7 @@ const Project = () => {
                 </form>
 
                 {
-                    1 ? 1 ?
+                    isPredict ? predictData == 'APLICA' ?
                             <h1 className=" pt-10 pb-5 text-4xl font-bold text-slate-700 dark:text-white">{predictData}</h1> :
                             <h1 className=" pt-10 pb-5 text-4xl font-bold text-red-500 dark:text-red-400">{predictData}</h1> :
                         <h1></h1>

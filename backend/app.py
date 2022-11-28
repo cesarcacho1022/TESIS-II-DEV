@@ -52,7 +52,8 @@ def predict_placement():
             print("Resultado : " + str(result))
 
             sample_response = {
-                "result": str(result)
+                "result": result,
+                "ok": 'true'
             }
         except Exception as e:
             print("Fallado1 : " + str(e))
@@ -60,12 +61,15 @@ def predict_placement():
                 "status": 500,
 				"error": str(e)
             }
-        return sample_response
+        return jsonify(sample_response)
     else:
         sample_response = {"result": 'failed'}
 
     # JSONify response
-    response = jsonify(str(sample_response))
+    response = make_response(jsonify(sample_response))
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Content-Type'] = 'application/json'
+    response = jsonify(sample_response)
 
     return response
 
