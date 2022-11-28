@@ -7,7 +7,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.model_selection import train_test_split
 
 #LEYENDA LA DATA
-df = pd.read_csv('data/data.csv', delimiter=';')
+df = pd.read_csv('backend/data/data.csv', delimiter=';')
 
 #CAMBIANDO COLUMNAS CON TIPO OBJECT A VALORES CATEGORICOS
 for feature in df.columns: 
@@ -43,8 +43,8 @@ results_df_2 = pd.DataFrame(data=[["Analisis Discriminante",  metrics.accuracy_s
                           columns=['Modelo', 'Accuracy', 'Precision', 'Recall'])
 
 #CREANDO MODELOS
-pickle.dump(modelRegression, open('data/modelRegression.pkl', 'wb'))
-pickle.dump(modelDiscriminant, open('data/modelDiscriminant.pkl', 'wb'))
+pickle.dump(modelRegression, open('backend/data/modelRegression.pkl', 'wb'))
+pickle.dump(modelDiscriminant, open('backend/data/modelDiscriminant.pkl', 'wb'))
 
 #COMPARACION
 results_df = results_df.append(results_df_2, ignore_index=True)

@@ -3,13 +3,13 @@ from waitress import serve
 import pickle
 import numpy as np
 
-model = pickle.load(open('data/modelDiscriminant.pkl', 'rb'))
+model = pickle.load(open('backend/data/modelDiscriminant.pkl', 'rb'))
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return ('Bienvenidos al backend')
 
 
 @app.route('/test', methods=['GET'])
@@ -22,7 +22,7 @@ def getResult():
 
     result = 'APLICA' if result[0] == 0 else 'NO APLICA'
 
-    return render_template('index.html', result=result)
+    return result
 
 
 @app.route('/predict', methods=['POST'])
@@ -39,7 +39,7 @@ def predict_placement():
     result = model.predict(np.array([AMT_INCOME_TOTAL, AMT_CREDT, NAME_INCOME, NAME_EDUCATION, TERM_MONTH, CNT_CHILDRE, AGE]).reshape(1, 7))
     result = 'APLICA' if result[0] == 0 else 'NO APLICA'
 
-    return render_template('index.html', result=result)
+    return result
 
 
 if __name__ == '__main__':
