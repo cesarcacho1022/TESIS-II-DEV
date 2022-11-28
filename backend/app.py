@@ -1,10 +1,16 @@
 from flask import Flask, request, make_response, jsonify
-from waitress import serve
+from flask_cors import CORS
 import pickle
 import numpy as np
 
+# Model
 model = pickle.load(open('backend/data/modelDiscriminant.pkl', 'rb'))
+
+# Instantiation
 app = Flask(__name__)
+
+# Settings
+CORS(app)
 
 
 @app.route('/')
@@ -25,7 +31,7 @@ def getResult():
     return result
 
 
-@app.route('/predict', methods=['GET', 'POST', 'PUT'])
+@app.route('/predict', methods=['POST'])
 def predict_placement():
     if request.method == "POST":
         try:
@@ -46,24 +52,23 @@ def predict_placement():
             print("Resultado : " + str(result))
 
             sample_response = {
-                "result": 'sucess'
+                "result": str(result)
             }
         except Exception as e:
             print("Fallado1 : " + str(e))
             sample_response = {
-                "result": 'failed',
-                "error": str(e)
+                "status": 500,
+				"error": str(e)
             }
         return sample_response
     else:
-        print("Fallado2 : ")
         sample_response = {"result": 'failed'}
+
     # JSONify response
-    response = make_response(jsonify(sample_response))
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Content-Type'] = 'application/json'
+    response = jsonify(str(sample_response))
+
     return response
 
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080, debug=True)

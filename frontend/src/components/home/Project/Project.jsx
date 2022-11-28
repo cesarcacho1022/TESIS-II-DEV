@@ -37,24 +37,23 @@ const Project = () => {
         data.append("AGE", AGE)
 
         fetch("http://localhost:8080/predict", {
-            mode: 'no-cors',
             method: "POST",
             body: data
-        }).then((response) => response.json())
-            .then((res) => {
-                setIsPredict(true);
-                if (res.ok) {
-                    setPredictData("Perfect! ");
+        }).then((res) => {
+            setIsPredict(true);
+            console.log(res.result)
+            setPredictData(res.result);
+            if (res.ok) {
+                setPredictData(res.result);
 
-                } else if (res.status == 500) {
-                    setPredictData("Oops! ");
-                }
-            })
-            .catch ((e) => {
-                console.log(e)
-                setIsPredict(true);
-                setPredictData("Error submitting form!");
-            });
+            } else if (res.status == 500) {
+                setPredictData("Oops! ");
+            }
+        }).catch ((e) => {
+            console.log(e)
+            setIsPredict(true);
+            setPredictData("Error submitting form!");
+        });
     };
 
     useEffect(() => {
