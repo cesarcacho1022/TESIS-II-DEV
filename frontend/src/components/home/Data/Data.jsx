@@ -70,28 +70,16 @@ const Data = () => {
                                         </div>
                                         <div>
                                             <h2 className=" text-xl mb-2 font-semibold">
-                                                Project: <span
-                                                className="dark:text-emerald-400 text-emerald-500"> {myExplorationProjects.projectName} </span>
+                                                <span className="dark:text-emerald-400 text-emerald-500"> {myExplorationProjects.projectName}</span>
                                             </h2>
                                             <p className="text-sm mb-4 dark:text-emerald-400 text-slate-800 font-light">{myExplorationProjects.projectType}</p>
-                                            <h2>
-                                                Technology Used:
-                                            </h2>
-                                            <div className="mt-5">
-                                                <button
-                                                    className=" transform transition cursor-default duration-300 hover:scale-125 px-3 font-light py-1 text-sm dark:bg-zinc-700 dark:text-emerald-400 bg-emerald-500 text-white rounded-full m-1">html
-                                                </button>
-                                                <button
-                                                    className="transform transition cursor-default duration-300 hover:scale-125 px-3 font-light py-1 text-sm dark:bg-zinc-700 dark:text-emerald-400 bg-emerald-500 text-white rounded-full m-1">css
-                                                </button>
-                                            </div>
                                             <h3 className="dark:text-gray-300 text-slate-700 w-5/6 mx-auto mt-10">
-                                                {myExplorationProjects.projectDescription}
+                                                {myExplorationProjects.projectDetails}
                                             </h3>
                                             <div className=" mt-16">
                                                 <NavLink to={`/data/${myExplorationProjects.projectId}`}
-                                                         className="px-5 mx-2 bg-emerald-500 text-white dark:text-gray-900 py-2 rounded dark:bg-emerald-400 dark:hover:bg-zinc-700 hover:bg-slate-300 dark:hover:text-white hover:text-slate-700 transition duration-300 animate-infinite ">View
-                                                    Details</NavLink>
+                                                         className="px-5 mx-2 bg-emerald-500 text-white dark:text-gray-900 py-2 rounded dark:bg-emerald-400 dark:hover:bg-zinc-700 hover:bg-slate-300 dark:hover:text-white hover:text-slate-700 transition duration-300 animate-infinite ">Ver detalles
+                                                </NavLink>
                                             </div>
                                         </div>
                                     </div>

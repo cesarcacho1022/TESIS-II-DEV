@@ -44,9 +44,9 @@ const Navbar = () => {
                         <span className='px-2'><i
                             className="fas fa-moon text-lg text-slate-500 dark:text-white"></i></span>
                         {
-                            isDarkMode ? <input data-tip="Under development" type="checkbox"
+                            isDarkMode ? <input data-tip="Cambiar tema" type="checkbox"
                                                 className="toggle tooltip bg-emerald-400" onChange={toggleDarkMode}/> :
-                                <input data-tip="Under development" type="checkbox"
+                                <input data-tip="Cambiar tema" type="checkbox"
                                        className="toggle tooltip bg-emerald-400" defaultChecked
                                        onChange={toggleDarkMode}/>
                         }
