@@ -12,62 +12,60 @@ const Project = () => {
         AOS.init();
     }, []);
 
-    const projectForm = (e) => {
-        setProcessing(true);
-        e.preventDefault();
-
-        emailjs.sendForm("service_iqmhj5p",
-            "template_p2zlpfe",
-            e.target,
-            "user_o3an5FHcGVWKryAWQOTFh"
-        ).then(res => {
-            console.log(res);
-            if (res.status === 200) {
-                Swal.fire(
-                    'Message has been sent!',
-                    'Please wait for a reply from me',
-                    'success'
-                )
-                e.target.reset();
-                setProcessing(false);
-            } else {
-                Swal.fire(
-                    'Message could not be sent!',
-                    'Please try again later',
-                    'error'
-                )
-                e.target.reset();
-                setProcessing(false);
-            }
-        }).catch(err => {
-            console.log(err);
-        });
-
-    }
-
-
     return (
         <div id="project" className=" dark:bg-[#1c1c1c] bg-slate-100 text-white pb-32">
             <h1 className=" pt-24 pb-5 text-4xl font-bold text-slate-700 dark:text-white">Proyecto</h1>
             <hr className="py-1 bg-emerald-400 w-32 border-none rounded mb-20 mx-auto"/>
-            <div data-aos="fade-up" data-aos-duration="800"
-                 className="dark:bg-zinc-800 bg-slate-300 w-11/12 lg:w-1/2 mx-auto py-5 lg:py-14 rounded-box">
-                <form onSubmit={projectForm} className="flex flex-col w-11/12 lg:w-5/6 mx-auto" action="">
-                    <input required className="rounded outline-none text-gray-900 px-5  py-4 my-4" type="text"
-                           name="user_name" id="" placeholder="Your Name"/>
-                    <input required className=" rounded outline-none text-gray-900 px-5 py-4 my-4" type="email"
-                           name="user_email" id="" placeholder="Email"/>
-                    <textarea required className=" text-gray-900 outline-none px-5 pt-5 rounded my-4"
-                              name="user_message" placeholder="Type your message" id="" cols="30" rows="5"></textarea>
-                    {
-                        processing ? <input
-                                className=" rounded text-white dark:text-gray-900 cursor-pointer bg-emerald-500 dark:bg-emerald-400 my-4 px-20 py-4"
-                                type="submit" value="Sending..."/> :
-                            <input
-                                className=" rounded text-white dark:text-gray-900 cursor-pointer bg-emerald-500 dark:bg-emerald-400 my-4 px-20 py-4"
-                                type="submit" value="SEND"/>
-                    }
+            <div data-aos="fade-up" data-aos-duration="800" className="dark:bg-zinc-800 bg-slate-300 w-11/12 lg:w-1/2 mx-auto py-5 lg:py-14 rounded-box">
+
+                <form method="post" className="flex flex-col w-11/12 lg:w-5/6 mx-auto" action="">
+
+                    <h3 className="text-slate-700 dark:text-white mt-2">AMT_INCOME_TOTAL</h3>
+                    <input required className="rounded outline-none text-gray-900 px-5  py-4 my-4" type="number" step="0.01" name="AMT_INCOME_TOTAL" placeholder="AMT_INCOME_TOTAL"/>
+
+                    <h3 className="text-slate-700 dark:text-white mt-2">AMT_CREDT</h3>
+                    <input required className=" rounded outline-none text-gray-900 px-5 py-4 my-4" type="number" step="0.01" name="AMT_CREDT" placeholder="AMT_CREDT"/>
+
+                    <h3 className="text-slate-700 dark:text-white mt-2">NAME_INCOME</h3>
+                    <select required className="rounded outline-none text-gray-900 px-5  py-4 my-4" name="NAME_INCOME" id="NAME_INCOME">
+                        <option value="1">Businessman</option>
+                        <option value="2">Commercial associate</option>
+                        <option value="3">Maternity leave</option>
+                        <option value="4">Pensioner</option>
+                        <option value="5">State servant</option>
+                        <option value="6">Student</option>
+                        <option value="7">Unemployed</option>
+                        <option value="8">Working</option>
+                    </select>
+
+                    <h3 className="text-slate-700 dark:text-white mt-2">NAME_EDUCATION</h3>
+                    <select required className="rounded outline-none text-gray-900 px-5  py-4 my-4" name="NAME_EDUCATION" id="NAME_EDUCATION">
+                        <option value="1">Academic degree</option>
+                        <option value="2">Higher education</option>
+                        <option value="3">Incomplete higher</option>
+                        <option value="4">Lower secondary</option>
+                        <option value="5">Secondary / secondary special</option>
+                    </select>
+
+                    <h3 className="text-slate-700 dark:text-white mt-2">TERM_MONTH</h3>
+                    <input required className=" rounded outline-none text-gray-900 px-5 py-4 my-4" type="number" name="TERM_MONTH" placeholder="TERM_MONTH"/>
+
+                    <h3 className="text-slate-700 dark:text-white mt-2">CNT_CHILDRE</h3>
+                    <input required className="rounded outline-none text-gray-900 px-5  py-4 my-4" type="number" name="CNT_CHILDRE" placeholder="CNT_CHILDRE"/>
+
+                    <h3 className="text-slate-700 dark:text-white mt-2">AGE</h3>
+                    <input required className=" rounded outline-none text-gray-900 px-5 py-4 my-4" type="number" name="AGE" placeholder="AGE"/>
+
+                    <input
+                        className=" rounded text-white dark:text-gray-900 cursor-pointer bg-emerald-500 dark:bg-emerald-400 my-4 px-20 py-4"
+                        type="submit" value="PREDECIR"/>
                 </form>
+
+                {
+                    1 ? <h1 className=" pt-10 pb-5 text-4xl font-bold text-slate-700 dark:text-white">APLICA</h1> :
+                        <h1 className=" pt-10 pb-5 text-4xl font-bold text-red-500 dark:text-red-400">NO APLICA</h1>
+                }
+
             </div>
         </div>
     );
