@@ -39,7 +39,9 @@ const Project = () => {
         };
         fetch('http://localhost:8080/predict', {method: "POST", body: JSON.stringify(data)})
             .then(response => response.json())
-            .then(data => setPredictData(data));
+            .then(res => setPredictData(res));
+
+        console.log(data)
 
         setIsPredicct(true);
     };
@@ -55,7 +57,7 @@ const Project = () => {
             <div data-aos="fade-up" data-aos-duration="800"
                  className="dark:bg-zinc-800 bg-slate-300 w-11/12 lg:w-1/2 mx-auto py-5 lg:py-14 rounded-box">
 
-                <form method="post" className="flex flex-col w-11/12 lg:w-5/6 mx-auto" action="">
+                <form className="flex flex-col w-11/12 lg:w-5/6 mx-auto">
 
                     <h3 className="text-slate-700 dark:text-white mt-2">AMT_INCOME_TOTAL</h3>
                     <input required className="rounded outline-none text-gray-900 px-5  py-4 my-4" type="number"
@@ -107,8 +109,10 @@ const Project = () => {
                 </form>
 
                 {
-                    isPredict ? <h1 className=" pt-10 pb-5 text-4xl font-bold text-slate-700 dark:text-white">predictData</h1> :
-                        <h1 className=" pt-10 pb-5 text-4xl font-bold text-red-500 dark:text-red-400">predictData</h1>
+                    isPredict ? isPredict ?
+                            <h1 className=" pt-10 pb-5 text-4xl font-bold text-slate-700 dark:text-white">predictData</h1> :
+                            <h1 className=" pt-10 pb-5 text-4xl font-bold text-red-500 dark:text-red-400">predictData</h1> :
+                        <h1></h1>
                 }
 
             </div>
